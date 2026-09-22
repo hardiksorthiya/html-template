@@ -1,0 +1,126 @@
+<canvas class="page-particles" aria-hidden="true"></canvas>
+
+<div class="ambient ambient--one" aria-hidden="true"></div>
+<div class="ambient ambient--two" aria-hidden="true"></div>
+
+<div class="velocity-cursor" aria-hidden="true">
+  <div class="velocity-cursor__glow"></div>
+  <div class="velocity-cursor__ring"></div>
+  <div class="velocity-cursor__dot"></div>
+</div>
+
+<style>
+@media (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"] {
+    cursor: none !important;
+  }
+}
+
+.velocity-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: opacity 0.2s ease;
+}
+
+.velocity-cursor.is-active {
+  opacity: 1;
+}
+
+.velocity-cursor__dot,
+.velocity-cursor__ring,
+.velocity-cursor__glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.velocity-cursor__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+.velocity-cursor__ring {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.velocity-cursor__glow {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 0.2;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06) 40%,
+    transparent 70%
+  );
+  filter: blur(6px);
+}
+
+.page-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 999998;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ambient {
+  position: fixed;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(125px);
+}
+
+.ambient--one {
+  top: 90px;
+  left: -190px;
+  background: rgba(99, 234, 255, 0.04);
+}
+
+.ambient--two {
+  top: 750px;
+  right: -180px;
+  background: rgba(168, 124, 255, 0.035);
+}
+
+@media (pointer: coarse), (max-width: 991px) {
+  .velocity-cursor,
+  .page-particles,
+  .ambient {
+    display: none !important;
+  }
+
+  html,
+  body,
+  a,
+  button {
+    cursor: auto !important;
+  }
+}
+</style>

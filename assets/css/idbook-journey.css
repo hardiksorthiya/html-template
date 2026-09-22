@@ -1,0 +1,527 @@
+/* IDBook journey — latest sketch-to-purchase, site theme */
+
+html,
+body,
+#smooth-wrapper,
+#smooth-content,
+main {
+  background-color: #061516;
+}
+
+.hero {
+  background:
+    radial-gradient(circle at 70% 45%, rgba(0, 216, 210, 0.09), transparent 35%),
+    linear-gradient(120deg, #020707, #071b1c, #020808);
+}
+
+.idbook-journey {
+  --ij-bg: #061516;
+  --ij-teal: #00d8d2;
+  --ij-teal-light: #8ffffa;
+  --ij-paper: #f4f2eb;
+  --ij-ink: #252c2b;
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #fff;
+  background:
+    radial-gradient(circle at 70% 45%, rgba(0, 216, 210, 0.09), transparent 35%),
+    linear-gradient(120deg, #020707, #071b1c, #020808);
+  font-family: var(--font_bai), sans-serif;
+}
+
+.idbook-journey h2,
+.idbook-journey h3 {
+  color: #fff;
+}
+
+.idbook-journey__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image:
+    linear-gradient(rgba(0, 216, 210, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 216, 210, 0.3) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+
+.idbook-journey__copy {
+  position: absolute;
+  left: clamp(24px, 5vw, 90px);
+  top: 50%;
+  z-index: 4;
+  width: min(380px, 32vw);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.idbook-journey__eyebrow {
+  margin: 0 0 20px;
+  color: var(--ij-teal);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.idbook-journey__title {
+  margin: 0 0 24px;
+  color: #f4f7f6;
+  font-size: clamp(44px, 5.6vw, 92px);
+  font-weight: 500;
+  line-height: 0.86;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.idbook-journey__title em {
+  font-style: italic;
+  font-family: var(--font_tartuffotrial), serif;
+  font-weight: 400;
+  color: var(--ij-teal);
+  text-transform: none;
+  letter-spacing: -0.03em;
+}
+
+.idbook-journey__lead {
+  margin: 0;
+  max-width: 320px;
+  color: #b7c8c7;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.idbook-journey__stage {
+  position: absolute;
+  top: 50%;
+  left: clamp(380px, 38vw, 520px);
+  right: 8vw;
+  z-index: 5;
+  width: auto;
+  height: min(560px, 66vh);
+  transform: translateY(-50%);
+  perspective: 1400px;
+}
+
+.idbook-journey__stage-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.idbook-journey__scene {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idbook-journey__paper {
+  position: relative;
+  width: min(650px, 100%);
+  height: min(470px, 100%);
+  overflow: hidden;
+  background: var(--ij-paper);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 80px rgba(255, 255, 255, 0.04);
+  opacity: 0;
+}
+
+.idbook-journey__paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.idbook-journey__paper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, transparent 50%, #d8d5cd 51%);
+}
+
+.idbook-journey__sketch {
+  position: absolute;
+  inset: 35px;
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}
+
+.idbook-journey__sketch path,
+.idbook-journey__sketch line,
+.idbook-journey__sketch polyline,
+.idbook-journey__sketch rect,
+.idbook-journey__sketch ellipse,
+.idbook-journey__sketch circle {
+  fill: none;
+  stroke: var(--ij-ink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.idbook-journey__sketch-rough {
+  opacity: 0.35;
+}
+
+.idbook-journey__sketch-rough line {
+  stroke-width: 1;
+}
+
+.idbook-journey__pencil {
+  position: absolute;
+  right: 80px;
+  bottom: 60px;
+  width: 100px;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #d9b27b, #f1d3a0);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: rotate(-25deg);
+}
+
+.idbook-journey__pencil::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: -2px;
+  border-left: 16px solid #333;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.idbook-journey__structure {
+  width: 100%;
+  opacity: 0;
+  filter: drop-shadow(0 0 10px rgba(0, 216, 210, 0.8));
+}
+
+.idbook-journey__structure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.idbook-journey__structure line,
+.idbook-journey__structure polyline,
+.idbook-journey__structure rect,
+.idbook-journey__structure path {
+  fill: none;
+  stroke: var(--ij-teal);
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.idbook-journey__cad {
+  width: 100%;
+  opacity: 0;
+  filter: drop-shadow(0 0 15px rgba(0, 216, 210, 0.7));
+}
+
+.idbook-journey__cad-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.idbook-journey__cad-svg line,
+.idbook-journey__cad-svg rect,
+.idbook-journey__cad-svg path,
+.idbook-journey__cad-svg circle {
+  fill: none;
+  stroke: var(--ij-teal-light);
+  stroke-width: 2;
+}
+
+.idbook-journey__cad-labels {
+  opacity: 0;
+}
+
+.idbook-journey__cad-svg text {
+  fill: var(--ij-teal);
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: var(--font_bai), sans-serif;
+}
+
+.idbook-journey__cad-svg .idbook-journey__cad-room {
+  font-size: 20px;
+  letter-spacing: 0.26em;
+  fill: var(--ij-teal-light);
+}
+
+.idbook-journey__three,
+.idbook-journey__reality {
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background-color: #071516;
+}
+
+.idbook-journey__three {
+  overflow: hidden;
+  background: #071516 url("../images/3d.png") center center / contain no-repeat;
+}
+
+.idbook-journey__three img,
+.idbook-journey__reality img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: min(560px, 66vh);
+  object-fit: contain;
+  object-position: center;
+}
+
+.idbook-journey__three img {
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.idbook-journey__reality {
+  overflow: hidden;
+  border: 1px solid rgba(0, 216, 210, 0.8);
+  box-shadow: 0 0 60px rgba(0, 216, 210, 0.25), 0 30px 100px rgba(0, 0, 0, 0.5);
+  background: #071516 url("../images/herobg2.webp") center center / cover no-repeat;
+}
+
+.idbook-journey__reality img {
+  object-fit: cover;
+}
+
+.idbook-journey__scan {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  opacity: 0;
+  background: linear-gradient(transparent, #fff, var(--ij-teal), transparent);
+  box-shadow: 0 0 25px var(--ij-teal), 0 0 60px var(--ij-teal);
+}
+
+.idbook-journey__progress-list {
+  position: absolute;
+  top: 50%;
+  right: 2.2vw;
+  z-index: 8;
+  transform: translateY(-50%);
+}
+
+.idbook-journey__progress-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.35s ease;
+}
+
+.idbook-journey__dot {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border: 1px solid var(--ij-teal);
+  border-radius: 50%;
+}
+
+.idbook-journey__progress-item.is-active {
+  color: #fff;
+}
+
+.idbook-journey__progress-item.is-active .idbook-journey__dot {
+  background: var(--ij-teal);
+  box-shadow: 0 0 15px var(--ij-teal);
+}
+
+.idbook-journey__purchase {
+  position: absolute;
+  right: 7vw;
+  bottom: 7vh;
+  z-index: 7;
+  width: min(330px, 86vw);
+  padding: 26px;
+  background: rgba(5, 20, 21, 0.9);
+  border: 1px solid rgba(0, 216, 210, 0.5);
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.idbook-journey__purchase small {
+  color: var(--ij-teal);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.idbook-journey__purchase h3 {
+  margin: 10px 0 0;
+  color: #fff !important;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.idbook-journey__purchase p {
+  margin: 10px 0 0;
+  color: #9bb1af;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.idbook-journey__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.idbook-journey__price {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.idbook-journey__buy {
+  padding: 13px 20px;
+  background: var(--ij-teal);
+  color: #031011;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.idbook-journey__buy:hover {
+  color: #031011;
+  background: var(--ij-teal-light);
+}
+
+.idbook-journey__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 25px;
+  z-index: 5;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+}
+
+.idbook-journey__hint span {
+  display: block;
+  width: 1px;
+  height: 40px;
+  margin: 10px auto 0;
+  background: linear-gradient(#fff, transparent);
+}
+
+@media (max-width: 1199px) {
+  .idbook-journey__copy {
+    width: min(300px, 28vw);
+  }
+
+  .idbook-journey__stage {
+    left: clamp(320px, 34vw, 420px);
+    right: 9vw;
+  }
+}
+
+@media (max-width: 991px) {
+  .idbook-journey {
+    min-height: auto;
+    padding: 110px 20px 80px;
+  }
+
+  .idbook-journey__copy,
+  .idbook-journey__stage,
+  .idbook-journey__progress-list,
+  .idbook-journey__purchase,
+  .idbook-journey__hint {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+
+  .idbook-journey__copy {
+    margin-bottom: 28px;
+  }
+
+  .idbook-journey__stage {
+    display: grid;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+
+  .idbook-journey__scene {
+    position: relative;
+    inset: auto;
+  }
+
+  .idbook-journey__paper,
+  .idbook-journey__structure,
+  .idbook-journey__cad,
+  .idbook-journey__three,
+  .idbook-journey__reality {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .idbook-journey__three img,
+  .idbook-journey__reality img {
+    height: auto;
+    max-height: none;
+  }
+
+  .idbook-journey__paper {
+    height: 280px;
+  }
+
+  .idbook-journey__progress-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 18px;
+    margin-bottom: 24px;
+  }
+
+  .idbook-journey__cad-labels,
+  .idbook-journey__purchase {
+    opacity: 1;
+    transform: none;
+  }
+
+  .idbook-journey__hint {
+    display: none;
+  }
+}
